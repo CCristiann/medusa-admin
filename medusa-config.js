@@ -77,22 +77,19 @@ const modules = {
   },*/
 };
 
-/** @type {import('@medusajs/medusa').ConfigModule["projectConfig"]} */
-const projectConfig = {
-  jwtSecret: process.env.JWT_SECRET,
-  cookieSecret: process.env.COOKIE_SECRET,
-  store_cors: STORE_CORS,
-  database_url: DATABASE_URL,
-  admin_cors: ADMIN_CORS,
-  // Uncomment the following lines to enable REDIS
-  // redis_url: REDIS_URL
-};
 
 /** @type {import('@medusajs/medusa').ConfigModule} */
 module.exports = {
   projectConfig: {
+    jwtSecret: process.env.JWT_SECRET,
+    cookieSecret: process.env.COOKIE_SECRET,
+    store_cors: STORE_CORS,
+    database_url: DATABASE_URL,
+    admin_cors: ADMIN_CORS,
     database_extra: { ssl: { rejectUnauthorized: false } },
     redis_url: process.env.REDIS_URL,
+    admin_cors: process.env.ADMIN_CORS,
+    database_url: DATABASE_URL
   },
   plugins,
   modules,
