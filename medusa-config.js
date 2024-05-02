@@ -29,7 +29,7 @@ const DB_DATABASE = process.env.DB_DATABASE
 
 const DATABASE_URL =
   `postgres://${DB_USERNAME}:${DB_PASSWORD}` +
-  `@${DB_HOST}:${DB_PORT}/${DB_DATABASE}&sslrootcert=ca-certificate.crt`
+  `@${DB_HOST}:${DB_PORT}/${DB_DATABASE}`
 
 // CORS when consuming Medusa from admin
 const ADMIN_CORS =
@@ -85,14 +85,7 @@ module.exports = {
     store_cors: STORE_CORS,
     database_url: DATABASE_URL,
     admin_cors: ADMIN_CORS,
-    database_extra:
-      process.env.DATABASE_SSL !== 'true'
-        ? undefined
-        : {
-          ssl: {
-            rejectUnauthorized: false,
-          },
-        },
+    database_extra: { ssl: { rejectUnauthorized: false } },
     redis_url: REDIS_URL,
     database_url: DATABASE_URL
   },
