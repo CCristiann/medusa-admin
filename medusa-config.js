@@ -45,8 +45,10 @@ const plugins = [
   `medusa-payment-manual`,
   {
     resolve: `@medusajs/file-local`,
+    /** @type {import('@medusajs/file-local').PluginOptions} */
     options: {
       upload_dir: "uploads",
+      backend_url: process.env.BACKEND_URL || "http://localhost:9000"
     },
   },
   {
