@@ -86,8 +86,7 @@ module.exports = {
     database_url: DATABASE_URL,
     admin_cors: ADMIN_CORS,
     database_extra: { ssl: { rejectUnauthorized: false } },
-    redis_url: process.env.REDIS_URL,
-    admin_cors: process.env.ADMIN_CORS,
+    redis_url: REDIS_URL,
     database_url: DATABASE_URL
   },
   plugins,
