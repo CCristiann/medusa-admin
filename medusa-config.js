@@ -63,7 +63,6 @@ const plugins = [
   },
   {
     resolve: `medusa-file-s3`,
-    /** @type {import('@medusajs/file-s3').PluginOptions} */
     options: {
       s3_url: process.env.S3_URL,
       bucket: process.env.S3_BUCKET,
