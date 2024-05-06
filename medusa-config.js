@@ -43,14 +43,14 @@ const REDIS_URL = process.env.REDIS_URL || "redis://localhost:6379";
 const plugins = [
   `medusa-fulfillment-manual`,
   `medusa-payment-manual`,
-  {
-    resolve: `@medusajs/file-local`,
-    /** @type {import('@medusajs/file-local').PluginOptions} */
-    options: {
-      upload_dir: "uploads",
-      backend_url: process.env.BACKEND_URL || "http://localhost:9000"
-    },
-  },
+  // {
+  //   resolve: `@medusajs/file-local`,
+  //   /** @type {import('@medusajs/file-local').PluginOptions} */
+  //   options: {
+  //     upload_dir: "uploads",
+  //     backend_url: process.env.BACKEND_URL || "http://localhost:9000"
+  //   },
+  // },
   {
     resolve: "@medusajs/admin",
     /** @type {import('@medusajs/admin').PluginOptions} */
@@ -59,6 +59,17 @@ const plugins = [
       develop: {
         open: process.env.OPEN_BROWSER !== "false",
       },
+    },
+  },
+  {
+    resolve: `medusa-file-s3`,
+    options: {
+        s3_url: process.env.S3_URL,
+        bucket: process.env.S3_BUCKET,
+        region: process.env.S3_REGION,
+        access_key_id: process.env.S3_ACCESS_KEY_ID,
+        secret_access_key: process.env.S3_SECRET_ACCESS_KEY,
+        cache_control: process.env.S3_CACHE_CONTROL,
     },
   },
 ];
