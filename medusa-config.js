@@ -63,13 +63,14 @@ const plugins = [
   },
   {
     resolve: `medusa-file-s3`,
+    /** @type {import('@medusajs/file-s3').PluginOptions} */
     options: {
-        s3_url: process.env.S3_URL,
-        bucket: process.env.S3_BUCKET,
-        region: process.env.S3_REGION,
-        access_key_id: process.env.S3_ACCESS_KEY_ID,
-        secret_access_key: process.env.S3_SECRET_ACCESS_KEY,
-        cache_control: process.env.S3_CACHE_CONTROL,
+      s3_url: process.env.S3_URL,
+      bucket: process.env.S3_BUCKET,
+      region: process.env.S3_REGION,
+      access_key_id: process.env.S3_ACCESS_KEY_ID,
+      secret_access_key: process.env.S3_SECRET_ACCESS_KEY,
+      cache_control: process.env.S3_CACHE_CONTROL,
     },
   },
 ];
@@ -89,15 +90,14 @@ const modules = {
   },*/
 };
 
-
 /** @type {import('@medusajs/medusa').ConfigModule} */
 module.exports = {
   projectConfig: {
     jwtSecret: process.env.JWT_SECRET,
     cookieSecret: process.env.COOKIE_SECRET,
+    admin_cors: ADMIN_CORS,
     store_cors: STORE_CORS,
     database_url: DATABASE_URL,
-    admin_cors: ADMIN_CORS,
     database_extra: { ssl: { rejectUnauthorized: false } },
     redis_url: REDIS_URL,
   },
